@@ -43,8 +43,8 @@ st.header("Files in the 'uploads' folder:")
 for file in uploads_folder_contents:
     st.write(file.name)
 
-download_link = f'<a href="{file.html_url}" download="{file.name}">Download</a>'
-st.markdown(download_link, unsafe_allow_html=True)
+    download_link = f'<a href="{file.download_url}" download="{file.name}">Download</a>'
+    st.markdown(download_link, unsafe_allow_html=True)
 
 # Read the content of the local file
 # with open(local_file_path, 'rb') as file:
