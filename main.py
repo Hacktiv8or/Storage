@@ -36,6 +36,12 @@ if upload is not None:
 else:
     st.warning("Please upload a file.")
 
+##List files
+uploads_folder_contents = repo.get_contents('uploads')
+
+st.header("Files in the 'uploads' folder:")
+for file in uploads_folder_contents:
+    st.write(file.name)
 # Read the content of the local file
 # with open(local_file_path, 'rb') as file:
 #     content = file.read()
