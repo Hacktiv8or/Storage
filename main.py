@@ -17,7 +17,7 @@ if upload is not None:
 # Read the content of the local file
 # with open(local_file_path, 'rb') as file:
 #     content = file.read()
-filename = os.path.basename(local_file_path)
+filename = os.path.basename(upload)
 
 # Specify the path where you want to upload the file in the repository
 repo_path = f'uploads/{filename}'
