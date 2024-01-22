@@ -43,13 +43,9 @@ st.header("Files in the 'uploads' folder:")
 for file in uploads_folder_contents:
     st.write(file.name)
 
-download_button = st.download_button(
-        label="Download",
-        key=f"download_{file.name}",
-        on_click=None,
-        args=(file.name,),
-        help=f"Download {file.name}"
-    )
+download_link = f'<a href="{file.download_url}" download="{file.name}">Download</a>'
+st.markdown(download_link, unsafe_allow_html=True)
+
 # Read the content of the local file
 # with open(local_file_path, 'rb') as file:
 #     content = file.read()
