@@ -1,6 +1,5 @@
 import streamlit as st
 from github import Github
-import os
 
 g = Github("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")
 username = 'Hacktiv8or'
@@ -17,10 +16,10 @@ if upload is not None:
 # Read the content of the local file
 # with open(local_file_path, 'rb') as file:
 #     content = file.read()
-filename = os.path.basename(upload)
+
 
 # Specify the path where you want to upload the file in the repository
-repo_path = f'uploads/{filename}'
+repo_path = f'uploads/asdf.py'
 
 # Check if the file already exists
 try:
