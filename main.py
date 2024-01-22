@@ -10,8 +10,8 @@ repo = user.get_repo(repo_name)
 st.write("Hello World")
 upload = st.file_uploader("Choose a file")
 if upload is not None:
-  with open(upload, 'rb') as file:
-    content = file.read()
+    # Read the content of the BytesIO object
+    content = upload.getvalue()
 
 # Read the content of the local file
 # with open(local_file_path, 'rb') as file:
