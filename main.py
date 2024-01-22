@@ -18,9 +18,10 @@ upload = st.file_uploader("Choose a file")
 if upload is not None:
     # Read the content of the uploaded file
     content = upload.read()
+    filename = upload.name
 
     # Specify the path where you want to upload the file in the repository
-    repo_path = 'uploads/asdf.py'
+    repo_path = f'uploads/{filename}'
 
     # Check if the file already exists in the repository
     try:
