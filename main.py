@@ -28,11 +28,11 @@ if upload is not None:
         contents = repo.get_contents(repo_path)
         # Update the file if it exists
         repo.update_file(repo_path, "Committing files", content, contents.sha, branch="main")
-        st.success(f'{repo_path} updated successfully!')
+        st.success(f'{filename} updated successfully!')
     except:
         # Create the file if it doesn't exist
         repo.create_file(repo_path, "Committing files", content, branch="main")
-        st.success(f'{repo_path} created successfully!')
+        st.success(f'{filename} uploaded successfully!')
 else:
     st.warning("Please upload a file.")
 
