@@ -7,11 +7,34 @@ repo_name = 'Storage'
 user = g.get_user(username)
 repo = user.get_repo(repo_name)
 
-st.title("Hackshpere~")
+st.title("Hackshpere")
 upload = st.file_uploader("Choose a file")
 # if upload is not None:
 #     # Read the content of the BytesIO object
 #     content = upload.getvalue()
+
+st.set_page_config(
+  page_title="Hackshpere",
+  page_icon="⚡"
+  )
+selected = option_menu(
+  menu_title = "Main Menu",
+  options = ["Upload","Download","Stats"],
+  icons = ["cloud-arrow-up","download","graph-up"],
+  default_index = 0,
+  orientation = "horizontal",
+  styles = {
+      "container": {"padding":"0!important","background-color":"blue"},
+      "icon": {"color": "orange", "font-size": "25px"},
+      "nav-link": {
+          "font-size": "25px",
+          "text-align": "left",
+          "margin": "0px",
+          "--hover-color": "#eee"
+      },
+      "nav-link-selected": {"background-color": "green"}
+  }
+)
 
 if upload is not None:
     # Read the content of the uploaded file
