@@ -2,6 +2,11 @@ import streamlit as st
 from github import Github
 from streamlit_option_menu import option_menu
 
+st.set_page_config(
+  page_title="Hackshpere",
+  page_icon="⚡"
+  )
+
 selected = option_menu(
   menu_title = None,
   options = ["Upload","Download","Stats"],
@@ -20,10 +25,6 @@ selected = option_menu(
   }
 )
 
-st.set_page_config(
-  page_title="Hackshpere",
-  page_icon="⚡"
-  )
 
 g = Github("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")
 username = 'Hacktiv8or'
