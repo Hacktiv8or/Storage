@@ -7,9 +7,7 @@ repo_name = 'Storage'
 user = g.get_user(username)
 repo = user.get_repo(repo_name)
 
-st.title("GitHub File Uploader")
-
-st.write("Hello World")
+st.title("~Hackshpere~")
 upload = st.file_uploader("Choose a file")
 # if upload is not None:
 #     # Read the content of the BytesIO object
