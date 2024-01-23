@@ -27,7 +27,7 @@ selected = option_menu(
   default_index = 0,
   orientation = "horizontal",
   styles = {
-      "container": {"padding":"0!important","background-color":"blue"},
+      "container": {"padding":"0!important","background-color":"#1b1b1b"},
       "icon": {"color": "orange", "font-size": "25px"},
       "nav-link": {
           "font-size": "25px",
