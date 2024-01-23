@@ -36,17 +36,17 @@ if upload is not None:
 else:
     st.warning("Please upload a file.")
 
+# List all files in the "uploads" folder
+uploads_folder_contents = repo.get_contents('uploads')
 
-files = repo.get_contents("uploads")
-for file in files:
-    file_name = file.name
-    st.text(file_name)
-    download_button = st.button(f"Download {file_name}")
+st.header("Files in the 'uploads' folder:")
+for file in uploads_folder_contents:
+    # Display file name
+    st.write(file.name)
 
-    # When the download button is clicked, provide a link for download
-    if download_button:
-        file_url = f"https://github.com/{username}/{repo_name}/raw/main/uploads/{file_name}"
-        st.markdown(f"[Download {file_name}]({file_url})")
+    # Create a download link next to each file name
+    download_link = f'<a href="{file.download_url}" download="{file.name}">Download</a>'
+    st.markdown(download_link, unsafe_allow_html=True)
 
 # Read the content of the local file
 # with open(local_file_path, 'rb') as file:
