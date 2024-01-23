@@ -2,6 +2,24 @@ import streamlit as st
 from github import Github
 from streamlit_option_menu import option_menu
 
+selected = option_menu(
+  menu_title = None,
+  options = ["Upload","Download","Stats"],
+  icons = ["cloud-arrow-up","download","graph-up"],
+  default_index = 0,
+  orientation = "horizontal",
+  styles = {
+      "icon": {"color": "lime", "font-size": "25px"},
+      "nav-link": {
+          "font-size": "20px",
+          "text-align": "center",
+          "margin": "0px",
+          "--hover-color": "#eee"
+      },
+      "nav-link-selected": {"background-color": "red"}
+  }
+)
+
 st.set_page_config(
   page_title="Hackshpere",
   page_icon="⚡"
@@ -20,24 +38,6 @@ upload = st.file_uploader("Choose a file")
 #     content = upload.getvalue()
 
 
-selected = option_menu(
-  menu_title = "Main Menu",
-  options = ["Upload","Download","Stats"],
-  icons = ["cloud-arrow-up","download","graph-up"],
-  default_index = 0,
-  orientation = "horizontal",
-  styles = {
-      "container": {"padding":"0!important","background-color":"#1b1b1b"},
-      "icon": {"color": "orange", "font-size": "25px"},
-      "nav-link": {
-          "font-size": "25px",
-          "text-align": "left",
-          "margin": "0px",
-          "--hover-color": "#eee"
-      },
-      "nav-link-selected": {"background-color": "green"}
-  }
-)
 
 if upload is not None:
     # Read the content of the uploaded file
