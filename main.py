@@ -14,7 +14,7 @@ selected = option_menu(
   default_index = 0,
   orientation = "horizontal",
   styles = {
-      "icon": {"color": "lime", "font-size": "25px"},
+      "icon": {"color": "lime", "font-size": "20px"},
       "nav-link": {
           "font-size": "20px",
           "text-align": "center",
