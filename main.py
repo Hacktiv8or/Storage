@@ -40,11 +40,15 @@ else:
 uploads_folder_contents = repo.get_contents('uploads')
 
 st.header("Files in the 'uploads' folder:")
-for file in uploads_folder_contents:
-    st.write(file.name)
+files = repo.get_contents("uploads")
+for file in files:
+    file_name = file.name
+    st.text(file_name)
+    download_button = st.button(f"Download {file_name}")
 
-    download_link = f'<a href="{file.download_url}" download="{file.name}">Download</a>'
-    st.markdown(download_link, unsafe_allow_html=True)
+    # When the download button is clicked, provide a link for download
+    if download_button:
+        st.markdown(f"[Download {file_name}](https://github.com/{username}/{repo_name}/raw/main/uploads/{file_name})")
 
 # Read the content of the local file
 # with open(local_file_path, 'rb') as file:
