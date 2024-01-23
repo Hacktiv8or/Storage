@@ -1,6 +1,11 @@
 import streamlit as st
 from github import Github
 
+st.set_page_config(
+  page_title="Hackshpere",
+  page_icon="⚡"
+  )
+
 g = Github("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")
 username = 'Hacktiv8or'
 repo_name = 'Storage'
@@ -13,10 +18,7 @@ upload = st.file_uploader("Choose a file")
 #     # Read the content of the BytesIO object
 #     content = upload.getvalue()
 
-st.set_page_config(
-  page_title="Hackshpere",
-  page_icon="⚡"
-  )
+
 selected = option_menu(
   menu_title = "Main Menu",
   options = ["Upload","Download","Stats"],
