@@ -73,9 +73,8 @@ if tab == "Upload":
             repo.update_file(repo_path, "Committing files", content, contents.sha, branch="main")
             st.success(f'{repo_path} UPDATED')
         except:
-            # Create the file if it doesn't exist
-            repo.create_file(repo_path, "Committing files", content, branch="main")
-            st.success(f'{repo_path} CREATED')
+          repo.create_file(repo_path, "Committing files", content, branch="main")
+          st.success(f'{repo_path} CREATED')
 
         st.toast("Files uploaded successfully!", icon="✔️")
         st.toast("Thanks for Uploading!", icon="🚀")
