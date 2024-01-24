@@ -1,6 +1,7 @@
 import streamlit as st
 from github import Github
 from streamlit_option_menu import option_menu
+import subprocess
 
 st.set_page_config(
   page_title="Hackshpere",
@@ -48,21 +49,21 @@ if tab == "Upload":
 
             if file_size > 100:
               st.warning("File size exceeds 100 MB. Uploading with Git LFS.")
-      
+            
               # Use Git LFS to track the file
               lfs_track_command = f"git lfs track '{repo_path}'"
-              os.system(lfs_track_command)
-      
+              subprocess.run(lfs_track_command, shell=True)
+  
               # Stage and commit the .gitattributes file
               git_add_command = "git add .gitattributes"
-              os.system(git_add_command)
-      
+              subprocess.run(git_add_command, shell=True)
+  
               git_commit_command = "git commit -m 'Add Git LFS tracking for large files'"
-              os.system(git_commit_command)
-      
+              subprocess.run(git_commit_command, shell=True)
+  
               # Push the changes
               git_push_command = "git push origin main"
-              os.system(git_push_command)
+              subprocess.run(git_push_command, shell=True)
       
               # Upload the file using Git LFS
               repo.create_file(repo_path, "Committing files", content="", branch="main", encode_content=True, use_lfs=True)
