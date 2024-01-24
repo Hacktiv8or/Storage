@@ -68,16 +68,16 @@ if tab == "Upload":
           repo.create_file(repo_path, "Committing files", content="", branch="main", encode_content=True, use_lfs=True)
           st.success(f'{repo_path} UPLOADED WITH GIT LFS')
         try:
-            contents = repo.get_contents(repo_path)
-            # Update the file if it exists
-            repo.update_file(repo_path, "Committing files", content, contents.sha, branch="main")
-            st.toast("Files uploaded successfully!", icon="✔️")
-            st.toast("Thanks for Uploading!", icon="🚀")
-        except:
-            # Create the file if it doesn't exist
-            repo.create_file(repo_path, "Committing files", content, branch="main")
-            st.toast("Files uploaded successfully!", icon="✔️")
-            st.toast("Thanks for Uploading!", icon="🚀")
+          contents = repo.get_contents(repo_path)
+          # Update the file if it exists
+          repo.update_file(repo_path, "Committing files", content, contents.sha, branch="main")
+          st.toast("Files uploaded successfully!", icon="✔️")
+          st.toast("Thanks for Uploading!", icon="🚀")
+    except:
+           # Create the file if it doesn't exist
+           repo.create_file(repo_path, "Committing files", content, branch="main")
+           st.toast("Files uploaded successfully!", icon="✔️")
+           st.toast("Thanks for Uploading!", icon="🚀")
 
 if tab == "Download":
   # List all files in the "uploads" folder
