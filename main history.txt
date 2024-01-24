@@ -1,0 +1,18 @@
+if tab == "Upload":
+  st.title("Hackshpere")
+  upload = st.file_uploader("Choose a file")
+  if upload is not None:
+      content = upload.read()
+      filename = upload.name
+      repo_path = f'uploads/{filename}'
+      try:
+          contents = repo.get_contents(repo_path)
+          # Update the file if it exists
+          repo.update_file(repo_path, "Committing files", content, contents.sha, branch="main")
+          st.toast("Files uploaded successfully!", icon="✔️")
+          st.toast("Thanks for Uploading!", icon="🚀")
+      except:
+          # Create the file if it doesn't exist
+          repo.create_file(repo_path, "Committing files", content, branch="main")
+          st.toast("Files uploaded successfully!", icon="✔️")
+          st.toast("Thanks for Uploading!", icon="🚀")
