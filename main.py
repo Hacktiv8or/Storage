@@ -53,11 +53,11 @@ if tab == "Upload":
               try:
                   contents = repo.get_contents(repo_path)
                   # Update the file if it exists
-                  repo.update_file(repo_path, "Committing files", content, contents.sha, branch="main", use_lfs=True)
+                  repo.update_file(repo_path, "Committing files", content, contents.sha, branch="main")
                   st.success(f"File '{filename}' uploaded successfully!")
               except Exception as e:
                   # Create the file if it doesn't exist
-                  repo.create_file(repo_path, "Committing files", content, branch="main", use_lfs=True)
+                  repo.create_file(repo_path, "Committing files", content, branch="main")
                   st.success(f"File '{filename}' uploaded successfully!")
             else:
                try:
