@@ -6,7 +6,7 @@ st.set_page_config(
   page_title="Hackshpere",
   page_icon="⚡"
   )
-st.snow()
+st.balloons()
 st.warning("🛠️ Website under heavy Development 🛠")
 tab = option_menu(
   menu_title = None,
@@ -44,13 +44,13 @@ if tab == "Upload":
           contents = repo.get_contents(repo_path)
           # Update the file if it exists
           repo.update_file(repo_path, "Committing files", content, contents.sha, branch="main")
-          st.success(f'{filename} updated successfully!')
+          st.toast("Files uploaded successfully!", icon="✔️")
+          st.toast("Thanks for Uploading!")
       except:
           # Create the file if it doesn't exist
           repo.create_file(repo_path, "Committing files", content, branch="main")
-          st.success(f'{filename} uploaded successfully!')
-  else:
-      st.warning("Please upload a file.")
+          st.toast("Files uploaded successfully!", icon="✔️")
+          st.toast("Thanks for Uploading!")
 
 if tab == "Download":
   # List all files in the "uploads" folder
