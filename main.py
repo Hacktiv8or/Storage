@@ -6,6 +6,9 @@ st.set_page_config(
   page_title="Hackshpere",
   page_icon="⚡"
   )
+st.toast("Welcome to Hacktiv8or's Hackpshere!")
+time.sleep(0.2)
+st.toast("By~ Hacktiv8or aka Harsh")
 st.warning("🛠️ Website under heavy Development 🛠")
 tab = option_menu(
   menu_title = None,
