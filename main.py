@@ -50,24 +50,15 @@ if tab == "Upload":
             if file_size > 100:
               st.warning("File size exceeds 100 MB. Uploading with Git LFS.")
             
-              # Use Git LFS to track the file
-              lfs_track_command = f"git lfs track '{repo_path}'"
-              subprocess.run(lfs_track_command, shell=True)
-  
-              # Stage and commit the .gitattributes file
-              git_add_command = "git add .gitattributes"
-              subprocess.run(git_add_command, shell=True)
-  
-              git_commit_command = "git commit -m 'Add Git LFS tracking for large files'"
-              subprocess.run(git_commit_command, shell=True)
-  
-              # Push the changes
-              git_push_command = "git push origin main"
-              subprocess.run(git_push_command, shell=True)
-      
-              # Upload the file using Git LFS
-              repo.create_file(repo_path, "Committing files", content="", branch="main", encode_content=True, use_lfs=True)
-              st.success(f'{repo_path} UPLOADED WITH GIT LFS')
+        try:
+            contents = repo.get_contents(repo_path)
+            # Update the file if it exists
+            repo.update_file(repo_path, "Committing files", content, contents.sha, branch="main", use_lfs=True)
+            st.success(f"File '{filename}' uploaded successfully!")
+        except Exception as e:
+            # Create the file if it doesn't exist
+            repo.create_file(repo_path, "Committing files", content, branch="main", use_lfs=True)
+            st.success(f"File '{filename}' uploaded successfully!")
             else:
                try:
                   contents = repo.get_contents(repo_path)
