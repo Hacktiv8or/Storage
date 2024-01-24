@@ -72,12 +72,12 @@ if tab == "Upload":
             # Update the file if it exists
             repo.update_file(repo_path, "Committing files", content, contents.sha, branch="main")
             st.success(f'{repo_path} UPDATED')
-        except:
-          repo.create_file(repo_path, "Committing files", content, branch="main")
-          st.success(f'{repo_path} CREATED')
+         except:
+           repo.create_file(repo_path, "Committing files", content, branch="main")
+           st.success(f'{repo_path} CREATED')
 
-        st.toast("Files uploaded successfully!", icon="✔️")
-        st.toast("Thanks for Uploading!", icon="🚀")
+         st.toast("Files uploaded successfully!", icon="✔️")
+         st.toast("Thanks for Uploading!", icon="🚀")
 
 if tab == "Download":
   # List all files in the "uploads" folder
