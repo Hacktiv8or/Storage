@@ -36,48 +36,50 @@ repo = user.get_repo(repo_name)
 
 if tab == "Upload":
   st.title("Hackshpere")
-  upload = st.file_uploader("Choose a file", accept_multiple_files=True)
-  if upload is not None:
-      content = upload.read()
-      filename = upload.name
-      repo_path = f'uploads/{filename}'
+  uploads = st.file_uploader("Choose a file", accept_multiple_files=True)
+  if uploads is not None:
+    for upload in uploads:
+            content = upload.read()
+            filename = upload.name
+            repo_path = f'uploads/{filename}'
 
-      file_size = len(content) / (1024 * 1024)  # Size in MB
-      st.write(f"File size: {file_size:.2f} MB")
+            file_size = len(content) / (1024 * 1024)  # Size in MB
+            st.write(f"File size: {file_size:.2f} MB")
 
-      if file_size > 100:
-        st.warning("File size exceeds 100 MB. Uploading with Git LFS.")
+            if file_size > 100:
+              st.warning("File size exceeds 100 MB. Uploading with Git LFS.")
+      
+              # Use Git LFS to track the file
+              lfs_track_command = f"git lfs track '{repo_path}'"
+              os.system(lfs_track_command)
+      
+              # Stage and commit the .gitattributes file
+              git_add_command = "git add .gitattributes"
+              os.system(git_add_command)
+      
+              git_commit_command = "git commit -m 'Add Git LFS tracking for large files'"
+              os.system(git_commit_command)
+      
+              # Push the changes
+              git_push_command = "git push origin main"
+              os.system(git_push_command)
+      
+              # Upload the file using Git LFS
+              repo.create_file(repo_path, "Committing files", content="", branch="main", encode_content=True, use_lfs=True)
+              st.success(f'{repo_path} UPLOADED WITH GIT LFS')
+            else:
+               try:
+                  contents = repo.get_contents(repo_path)
+                  # Update the file if it exists
+                  repo.update_file(repo_path, "Committing files", content, contents.sha, branch="main")
+                  st.success(f'{repo_path} UPDATED')
+               except:
+                 repo.create_file(repo_path, "Committing files", content, branch="main")
+                 st.success(f'{repo_path} CREATED')
+      
+               st.toast("Files uploaded successfully!", icon="✔️")
+               st.toast("Thanks for Uploading!", icon="🚀")
 
-        # Use Git LFS to track the file
-        lfs_track_command = f"git lfs track '{repo_path}'"
-        os.system(lfs_track_command)
-
-        # Stage and commit the .gitattributes file
-        git_add_command = "git add .gitattributes"
-        os.system(git_add_command)
-
-        git_commit_command = "git commit -m 'Add Git LFS tracking for large files'"
-        os.system(git_commit_command)
-
-        # Push the changes
-        git_push_command = "git push origin main"
-        os.system(git_push_command)
-
-        # Upload the file using Git LFS
-        repo.create_file(repo_path, "Committing files", content="", branch="main", encode_content=True, use_lfs=True)
-        st.success(f'{repo_path} UPLOADED WITH GIT LFS')
-      else:
-         try:
-            contents = repo.get_contents(repo_path)
-            # Update the file if it exists
-            repo.update_file(repo_path, "Committing files", content, contents.sha, branch="main")
-            st.success(f'{repo_path} UPDATED')
-         except:
-           repo.create_file(repo_path, "Committing files", content, branch="main")
-           st.success(f'{repo_path} CREATED')
-
-         st.toast("Files uploaded successfully!", icon="✔️")
-         st.toast("Thanks for Uploading!", icon="🚀")
 
 if tab == "Download":
   # List all files in the "uploads" folder
