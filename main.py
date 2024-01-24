@@ -7,6 +7,8 @@ st.set_page_config(
   page_title="Hackshpere",
   page_icon="⚡"
   )
+with open('style.css') as f:
+  st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 st.toast("Welcome to Hacktiv8or's Hackpshere!")
 st.toast("By~ Hacktiv8or aka Harsh")
 st.warning("🛠️ Website under heavy Development 🛠")
