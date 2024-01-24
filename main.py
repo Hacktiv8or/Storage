@@ -7,7 +7,7 @@ st.set_page_config(
   page_icon="⚡"
   )
 
-st.alert("🛠️ Website under heavy Development 🛠")
+st.warning("🛠️ Website under heavy Development 🛠")
 tab = option_menu(
   menu_title = None,
   options = ["Upload","Download","Stats"],
