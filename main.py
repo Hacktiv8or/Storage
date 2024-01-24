@@ -6,7 +6,7 @@ st.set_page_config(
   page_title="Hackshpere",
   page_icon="⚡"
   )
-
+st.snow()
 st.warning("🛠️ Website under heavy Development 🛠")
 tab = option_menu(
   menu_title = None,
