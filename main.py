@@ -36,7 +36,7 @@ repo = user.get_repo(repo_name)
 
 if tab == "Upload":
   st.title("Hackshpere")
-  upload = st.file_uploader("Choose a file")
+  upload = st.file_uploader("Choose a file", accept_multiple_files=True, label_visibility="collapsed")
   if upload is not None:
       content = upload.read()
       filename = upload.name
