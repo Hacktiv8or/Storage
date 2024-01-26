@@ -94,9 +94,18 @@ if tab == "Download":
 if tab == "Stats":
   with st.container(border=True):
     comp.html("""
-    <div>
-    <h1>This is a very looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong text :)</h1>
-    </div>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacksphere</title>
+</head>
+<body>
+<div><p>this is some text</p></div>
+</body>
+</html>
+
     """)
 
   
