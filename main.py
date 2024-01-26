@@ -89,7 +89,7 @@ if tab == "Download":
   for file in uploads_folder_contents:
     # Display file information
     st.write(f"File Name: {file.name}")
-    st.write(f"File Size: {file.size} bytes")
+    st.write(f"File Size: {file.size/1000000} MB ")
 
     # Create a download link next to each file name
     download_link = f'<a href="{file.download_url}" download="{file.name}">Download</a>'
