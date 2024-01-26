@@ -98,7 +98,7 @@ if tab == "Download":
 
     # If the download button is clicked, initiate the download
     if download_button:
-        st.markdown(f'<a href="{file.download_url}" download="{file.name}"></a>', unsafe_allow_html=True)
+        st.markdown(f'<a href="{file.download_url}"></a>', unsafe_allow_html=True)
 
     # # Create a download link next to each file name
     # download_link = f'<a href="{file.download_url}" download="{file.name}">Download</a>'
