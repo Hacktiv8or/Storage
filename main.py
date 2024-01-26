@@ -93,7 +93,8 @@ if tab == "Download":
 
     # Create a download link next to each file name
     download_link = f'<a href="{file.download_url}" download="{file.name}">Download</a>'
-    st.markdown(download_link, unsafe_allow_html=True)
+    comp.html(f"""
+    <button>{st.markdown(download_link, unsafe_allow_html=True)}</button>""")
 
 
 if tab == "Stats":
