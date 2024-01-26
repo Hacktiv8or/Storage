@@ -92,13 +92,14 @@ if tab == "Download":
     # st.write(f"File Size: {round(file.size/1000000, 2)} MB")
     # file_name = file.name
     # st.write(f"File Size: {round(file.size/1000000,2)} MB ")
-    st.markdown(
+    if st.markdown(
         f'<a style="display:inline-block;padding:6px 12px;margin-bottom:0;font-size:14px;font-weight:400;line-height:1.42857143;text-align:center;white-space:nowrap;vertical-align:middle;cursor:pointer;border:1px solid transparent;border-radius:4px;background-color:#337ab7;color:#fff;border-color:#2e6da4;text-decoration:none;" '
         f'href="{file.download_url}" download="{file.name}">'
         f'<span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> {file.name}'
         f'</a>',
         unsafe_allow_html=True
-    )
+    ):
+      st.write('Wowwwwwwwwwwwwwwwwwwww')
     # def download():
     #     st.markdown(f'<a href="{file.download_url}" download="{file.name}"></a>', unsafe_allow_html=True)
     # # Create a download button next to each file name
