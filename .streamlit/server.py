@@ -1,3 +1,0 @@
-routes.extend([
-            (r'/()', tornado.web.StaticFileHandler, {"path": os.path.join(os.getcwd(), "static", "index.html")})
-        ])
