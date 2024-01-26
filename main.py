@@ -96,7 +96,7 @@ if tab == "Download":
     def download():
         st.markdown(f'<a href="{file.download_url}" download="{file.name}"></a>', unsafe_allow_html=True)
     # Create a download button next to each file name
-    download_button = st.button(f"Download⬇️", key=file.name, onclick=download())
+    download_button = st.button(f"Download⬇️", key=file.name, on_click=download())
 
     # If the download button is clicked, initiate the download
 
