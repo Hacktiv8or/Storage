@@ -100,7 +100,6 @@ if tab == "Download":
         f'</a>',
         unsafe_allow_html=True
     )
-    )
     # def download():
     #     st.markdown(f'<a href="{file.download_url}" download="{file.name}"></a>', unsafe_allow_html=True)
     # # Create a download button next to each file name
