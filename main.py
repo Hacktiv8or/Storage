@@ -10,6 +10,8 @@ st.set_page_config(
   page_icon="⚡"
   )
 
+upload_num = 10
+download_num = 15
 with open('style.css') as f:
   st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 st.toast("Welcome to Hacktiv8or's Hackpshere!")
@@ -69,10 +71,12 @@ if tab == "Upload":
                   contents = repo.get_contents(repo_path)
                   # Update the file if it exists
                   repo.update_file(repo_path, "Committing files", content, contents.sha, branch="main")
-                  st.success(f'{repo_path} UPDATED')
+                  st.success(f'{filename} updated Successfully!')\
+                  upload_num += 1
                except:
                  repo.create_file(repo_path, "Committing files", content, branch="main")
-                 st.success(f'{repo_path} CREATED')
+                 st.success(f'{filename} uploaded successfully!')
+                 upload_num += 1
       
                st.toast("Files uploaded successfully!", icon="✔️")
                st.toast("Thanks for Uploading!", icon="🚀")
@@ -93,19 +97,9 @@ if tab == "Download":
 
 if tab == "Stats":
   with st.container(border=True):
-    comp.html("""
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacksphere</title>
-</head>
-<body>
-<div><p>this is some text</p></div>
-</body>
-</html>
-
+    comp.html(f"""
+    <div><p>Total Uploads till now:{upload_num}</p></div>
+    
     """)
 
   
