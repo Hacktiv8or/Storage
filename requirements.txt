@@ -1,3 +1,4 @@
+flask
 github
 pyGithub
 streamlit_option_menu
