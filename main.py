@@ -93,12 +93,12 @@ if tab == "Download":
     st.write(f"File Name: {file.name}")
     st.write(f"File Size: {round(file.size/1000000,2)} MB ")
     
+    def download():
+        st.markdown(f'<a href="{file.download_url}" download="{file.name}"></a>', unsafe_allow_html=True)
     # Create a download button next to each file name
-    download_button = st.button(f"Download {file.name} ⬇️", key=file.name)
+    download_button = st.button(f"Download⬇️", key=file.name, onclick=download())
 
     # If the download button is clicked, initiate the download
-    if download_button:
-        st.markdown(f'<a href="{file.download_url}"></a>', unsafe_allow_html=True)
 
     # # Create a download link next to each file name
     # download_link = f'<a href="{file.download_url}" download="{file.name}">Download</a>'
