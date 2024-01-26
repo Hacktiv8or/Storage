@@ -1,4 +1,3 @@
-import flask
 import streamlit as st
 import streamlit.components.v1 as comp
 from github import Github
@@ -98,13 +97,11 @@ if tab == "Download":
 if tab == "Stats":
   with st.container(border=True):
     comp.html(f"""
-    <div><p>Users Uploaded {upload_num} files!</p></div>
-    
+    <p>Users Uploaded {upload_num} files!</p>
     """)
   with st.container(border=True):
     comp.html(f"""
-    <div><p>Users Downloaded {upload_num} times!</p></div>
-    
+    <p>Users Downloaded {upload_num} times!</p>
     """)
 
   
