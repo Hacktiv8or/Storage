@@ -90,19 +90,10 @@ if tab == "Download":
     # Display file information
     st.write(f"File Name: {file.name}")
     st.write(f"File Size: {file.size} bytes")
-    
-    # Create a download button for each file
-    download_button = st.download_button(
-        label="Download",
-        key=file.name,  # Use a unique key for each button to ensure correct functionality
-        on_click=lambda: st.markdown(f'<a href="{file.download_url}" download="{file.name}">Download</a>', unsafe_allow_html=True)
-    )
-    
-    # Display the download button
-    st.write(download_button)
-      # # Create a download link next to each file name
-      # download_link = f'<a href="{file.download_url}" download="{file.name}">Download</a>'
-      # st.markdown(download_link, unsafe_allow_html=True)
+
+    # Create a download link next to each file name
+    download_link = f'<a href="{file.download_url}" download="{file.name}">Download</a>'
+    st.download_button(st.markdown(download_link, unsafe_allow_html=True))
 
 if tab == "Stats":
   with st.container(border=True):
