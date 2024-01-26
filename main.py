@@ -92,7 +92,7 @@ if tab == "Download":
       st.markdown(download_link, unsafe_allow_html=True)
 
 if tab == "Stats":
-  with st.container():
+  with st.container(border="True"):
     comp.html("""
     <div>
     <h1>This is a very looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong text :)</h1>
