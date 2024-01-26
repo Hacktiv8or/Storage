@@ -10,13 +10,6 @@ st.set_page_config(
   page_icon="⚡"
   )
 
-comp.html("""
-<div>
-<h1>
-a type of Text
-</h1>
-</div>
-""")
 with open('style.css') as f:
   st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 st.toast("Welcome to Hacktiv8or's Hackpshere!")
@@ -97,5 +90,12 @@ if tab == "Download":
       # Create a download link next to each file name
       download_link = f'<a href="{file.download_url}" download="{file.name}">Download</a>'
       st.markdown(download_link, unsafe_allow_html=True)
+
+if tab == "Stats":
+  comp.html("""
+  <div>
+  <h1>This is a very looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong text :)</h1>
+  </div>
+  """)
 
   
