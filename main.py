@@ -97,11 +97,11 @@ if tab == "Download":
 if tab == "Stats":
   with st.container(border=True):
     comp.html(f"""
-    <p>Users Uploaded {upload_num} files!</p>
+    <h1>Users Uploaded {upload_num} files!</h1>
     """)
   with st.container(border=True):
     comp.html(f"""
-    <p>Users Downloaded {upload_num} times!</p>
+    <h1>Users Downloaded {upload_num} times!<h1>
     """)
 
   
