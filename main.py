@@ -5,6 +5,7 @@ from streamlit_option_menu import option_menu
 import subprocess
 
 st.set_page_config(
+  layout="wide"
   page_title="Hackshpere",
   page_icon="⚡"
   )
