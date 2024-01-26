@@ -88,13 +88,14 @@ if tab == "Download":
   st.header("Files in the 'uploads' folder:")
   for file in uploads_folder_contents:
     # Display file information
-    st.write(f"File Name: {file.name}")
-    st.write(f"File Size: {round(file.size/1000000,2)} MB ")
+    st.write(f"File Name: [{file.name}]({file.download_url})")
+    st.write(f"File Size: {round(file.size/1000000, 2)} MB")
+    # st.write(f"File Name: {file.name}")
+    # st.write(f"File Size: {round(file.size/1000000,2)} MB ")
 
     # Create a download link next to each file name
     download_link = f'<a href="{file.download_url}" download="{file.name}">Download</a>'
-    comp.html(f"""
-    <button>{st.markdown(download_link, unsafe_allow_html=True)}</button>""")
+    st.markdown(download_link, unsafe_allow_html=True)
 
 
 if tab == "Stats":
