@@ -1,5 +1,6 @@
 import flask
 import streamlit as st
+import streamlit.components.v1 as comp
 from github import Github
 from streamlit_option_menu import option_menu
 import subprocess
@@ -8,6 +9,14 @@ st.set_page_config(
   page_title="Hackshpere",
   page_icon="⚡"
   )
+
+comp.html("""
+<div>
+<h1>
+a type of Text
+</h1>
+</div>
+""")
 with open('style.css') as f:
   st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 st.toast("Welcome to Hacktiv8or's Hackpshere!")
