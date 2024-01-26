@@ -98,7 +98,12 @@ if tab == "Download":
 if tab == "Stats":
   with st.container(border=True):
     comp.html(f"""
-    <div><p>Total Uploads till now:{upload_num}</p></div>
+    <div><p>Users Uploaded {upload_num} files!</p></div>
+    
+    """)
+  with st.container(border=True):
+    comp.html(f"""
+    <div><p>Users Downloaded {upload_num} times!</p></div>
     
     """)
 
