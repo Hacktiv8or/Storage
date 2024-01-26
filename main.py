@@ -98,9 +98,6 @@ if tab == "Stats":
   with st.container(border=True):
     comp.html(f"""
     <h1 style="text-align:center">Users Uploaded {upload_num} files!</h1>
-    """)
-  with st.container(border=True):
-    comp.html(f"""
     <h1 style="text-align:center">Users Downloaded {upload_num} times!<h1>
     """)
 
