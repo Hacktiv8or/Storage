@@ -10,12 +10,7 @@ st.set_page_config(
   )
 upload_num = 10
 download_num = 15
-comp.html("""
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
-""")
-st.markdown(f"<p style='font-size:50px;text-align:center;font-family:'Rajdhani';'>Hacksphere</p>", unsafe_allow_html=True)
+st.markdown(f"<p style='font-size:50px;text-align:center;'>Hacksphere</p>", unsafe_allow_html=True)
 
 with open('style.css') as f:
   st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
