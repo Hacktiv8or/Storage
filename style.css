@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+}
+
 .st-emotion-cache-1xw8zd0.e1f1d6gn0{
   background-image: linear-gradient(to right, blue , lime);
   border: 5px solid red;
