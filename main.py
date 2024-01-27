@@ -10,7 +10,7 @@ st.set_page_config(
   )
 
 upload_num = 10
-download_num = 15
+download_num = {}
 with open('style.css') as f:
   st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 st.toast("Welcome to Hacktiv8or's Hackpshere!")
@@ -91,16 +91,16 @@ if tab == "Download":
     st.write(f"File Size: {round(file.size/1000000, 2)} MB")
 
     # Increment download count if the file has been downloaded before
-    download_count = download_counts.get(file.name, 0)
+    download_num = download_num.get(file.name, 0)
 
     # Create a button next to the file name using custom HTML
     if st.button(f"Download {file.name}"):
-        download_counts[file.name] = download_count + 1
+        download_num[file.name] = download_num + 1
         # Add your download logic here
 
 # Display the final download counts (optional)
 st.header("Download Counts:")
-for filename, count in download_counts.items():
+for filename, count in download_num.items():
     st.write(f"{filename}: {count}")
 
     # # Display file information
