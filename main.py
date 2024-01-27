@@ -11,9 +11,8 @@ st.set_page_config(
 upload_num = 10
 download_num = 15
 
-st.markdown(f"<p style='font-size:20px;'>Hacksphere</p>")
-s = f"<p style='font-size:20px;'>{label}</p>"
-st.markdown(s, unsafe_allow_html=True) 
+st.markdown(f"<p style='font-size:20px;'>Hacksphere</p>", unsafe_allow_html=True)
+
 with open('style.css') as f:
   st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 st.toast("Welcome to Hacktiv8or's Hackpshere!")
