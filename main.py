@@ -8,9 +8,12 @@ st.set_page_config(
   page_title="Hackshpere",
   page_icon="⚡"
   )
-
 upload_num = 10
 download_num = 15
+
+st.markdown(f"<p style='font-size:20px;'>Hacksphere</p>")
+s = f"<p style='font-size:20px;'>{label}</p>"
+st.markdown(s, unsafe_allow_html=True) 
 with open('style.css') as f:
   st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 st.toast("Welcome to Hacktiv8or's Hackpshere!")
@@ -42,7 +45,6 @@ user = g.get_user(username)
 repo = user.get_repo(repo_name)
 
 if tab == "Upload":
-  st.markdown("Hackshpere")
   uploads = st.file_uploader("Choose a file", accept_multiple_files=True)
   if uploads is not None:
     for upload in uploads:
