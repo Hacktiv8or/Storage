@@ -82,49 +82,21 @@ if tab == "Upload":
 
 
 if tab == "Download":
-  # List all files in the "uploads" folder
-  uploads_folder_contents = repo.get_contents('uploads')
-  
-  st.header("Files in the 'uploads' folder:")
-  # for file in uploads_folder_contents:
-  #   st.write(f"File Name: {file.name}")
-  #   st.write(f"File Size: {round(file.size/1000000, 2)} MB")
-  for file in uploads_folder_contents:
-    # Display file information (optional)
-    st.write(f"File Name: {file.name}")
-    st.write(f"File Size: {round(file.size/1000000, 2)} MB")
+    # List all files in the "uploads" folder
+    uploads_folder_contents = repo.get_contents('uploads')
+    st.header("Files in the 'uploads' folder:")
+    for file in uploads_folder_contents:
+        # Display file information (optional)
+        st.write(f"File Name: {file.name}")
+        st.write(f"File Size: {round(file.size / 1000000, 2)} MB")
 
-    # Create a button next to the file name using custom HTML
-    if st.button(f"Download {file.name}"):
-        # Increment the global download_num variable
-        download_num += 1
+        # Create a download link next to the file name
+        download_link = f'<a href="{file.download_url}" download="{file.name}">Download {file.name}</a>'
+        st.markdown(download_link, unsafe_allow_html=True)
 
-        # Simulate download logic (replace this with your actual download logic)
-        st.success(f"Downloading {file.name}...")
-
-
-    # # Display file information
-    # # st.write(f"File Name: [{file.name}]({file.download_url})")
-    # # st.write(f"File Size: {round(file.size/1000000, 2)} MB")
-    # # file_name = file.name
-    # # st.write(f"File Size: {round(file.size/1000000,2)} MB ")
-    # st.markdown(
-    #     f'<a style="display:inline-block;padding:6px 12px;margin-bottom:0;font-size:14px;font-weight:400;line-height:1.42857143;text-align:center;white-space:nowrap;vertical-align:middle;cursor:pointer;border:1px solid transparent;border-radius:4px;background-color:#337ab7;color:#fff;border-color:#2e6da4;text-decoration:none;" '
-    #     f'href="{file.download_url}" download="{file.name}">'
-    #     f'<span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> {file.name}'
-    #     f'</a>',
-    #     unsafe_allow_html=True
-    # )
-    # def download():
-    #     st.markdown(f'<a href="{file.download_url}" download="{file.name}"></a>', unsafe_allow_html=True)
-    # # Create a download button next to each file name
-    # download_button = st.button(f"Download⬇️", key=file.name, on_click=download())
-
-    # If the download button is clicked, initiate the download
-
-    # # Create a download link next to each file name
-    # download_link = f'<a href="{file.download_url}" download="{file.name}">Download</a>'
-    # st.markdown(download_link, unsafe_allow_html=True)
+        # Increment the global download_num variable when the link is clicked
+        if st.button(f"Increment Download Count for {file.name}"):
+            download_num += 1
 
 
 if tab == "Stats":
