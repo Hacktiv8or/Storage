@@ -7,6 +7,6 @@ body {
   background-image: linear-gradient(to right, blue , lime);
   border: 5px solid red;
 }
-.nav-link.active.nav-link-horizontal{
+.container-xxl.d-flex.flex-column.flex-shrink-0 p-h.nav-justified{
     font-family: 'Rajdhani', sans-serif;
 }
