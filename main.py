@@ -10,7 +10,7 @@ st.set_page_config(
   )
 
 upload_num = 10
-download_num = {}
+download_num = 15
 with open('style.css') as f:
   st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 st.toast("Welcome to Hacktiv8or's Hackpshere!")
@@ -86,22 +86,22 @@ if tab == "Download":
   uploads_folder_contents = repo.get_contents('uploads')
   
   st.header("Files in the 'uploads' folder:")
+  # for file in uploads_folder_contents:
+  #   st.write(f"File Name: {file.name}")
+  #   st.write(f"File Size: {round(file.size/1000000, 2)} MB")
   for file in uploads_folder_contents:
+    # Display file information (optional)
     st.write(f"File Name: {file.name}")
     st.write(f"File Size: {round(file.size/1000000, 2)} MB")
 
-    # Increment download count if the file has been downloaded before
-    download_num = download_num.get(file.name, 0)
-
     # Create a button next to the file name using custom HTML
     if st.button(f"Download {file.name}"):
-        download_num[file.name] = download_num + 1
-        # Add your download logic here
+        # Increment the global download_num variable
+        download_num += 1
 
-# Display the final download counts (optional)
-st.header("Download Counts:")
-for filename, count in download_num.items():
-    st.write(f"{filename}: {count}")
+        # Simulate download logic (replace this with your actual download logic)
+        st.success(f"Downloading {file.name}...")
+
 
     # # Display file information
     # # st.write(f"File Name: [{file.name}]({file.download_url})")
