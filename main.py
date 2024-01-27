@@ -42,7 +42,7 @@ user = g.get_user(username)
 repo = user.get_repo(repo_name)
 
 if tab == "Upload":
-  st.title("Hackshpere")
+  st.markdown("Hackshpere")
   uploads = st.file_uploader("Choose a file", accept_multiple_files=True)
   if uploads is not None:
     for upload in uploads:
@@ -93,10 +93,6 @@ if tab == "Download":
         # Create a download link next to the file name
         download_link = f'<a href="{file.download_url}" download="{file.name}">Download {file.name}</a>'
         st.markdown(download_link, unsafe_allow_html=True)
-
-        # Increment the global download_num variable when the link is clicked
-        if st.button(f"Increment Download Count for {file.name}"):
-            download_num += 1
 
 
 if tab == "Stats":
