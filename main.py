@@ -14,8 +14,8 @@ st.markdown(f"<p style='font-size:50px;text-align:center;'>Hacksphere</p>", unsa
 
 with open('style.css') as f:
   st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
-st.toast("Welcome to Hacktiv8or's Hackpshere!")
-st.toast("By~ Hacktiv8or aka Harsh")
+st.toast("Welcome to Hackpshere!")
+st.toast("By~ Hacktiv8or...")
 st.warning("🛠️ Website under heavy Development 🛠")
 tab = option_menu(
   menu_title = None,
