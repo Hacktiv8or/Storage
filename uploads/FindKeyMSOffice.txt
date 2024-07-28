@@ -1,0 +1,13 @@
+--
+in cmd as admin--> 	wmic path softwarelicensingservice get OA3xOriginalProductKey
+and press enter
+
+for power shell as admin --> (Get-WmiObject -query 'select * from SoftwareLicensingService').OA3xOriginalProductKey
+
+Using Registry (Regedit)--
+
+	Click on the HKEY_LOCAL_MACHINE_Software_Microsoft_Windows_CurrentVersion from the left side pane.
+
+	Right-click on the ProductId in the right pane and select Modify.
+
+	The product key will be displayed in a new window. 
